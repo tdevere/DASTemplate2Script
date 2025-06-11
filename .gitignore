@@ -104,4 +104,5 @@ NetworkingInventory_*/
 *.tfvars               # Don’t commit your real tfvars
 .terraform/            # Terraform local module and state folder
 
-*.zip #also reports
+# ignore all zip archives
+*.zip
