@@ -1,0 +1,109 @@
+This IcM template should be used for any escalation falling related to Pipelines Tasks and UI.
+
+Please see https://aka.ms/TFSDTS for general filing steps.
+
+DO NOT add Customer Contact Data (Customer's E-Mail, Name, Contact Info, etc.)
+DO NOT add Support Data (Customer Files, Screenshots, IP addresses, etc.)
+
+All traces/logs should be for events within the last 21 days, so that we have time to review the corresponding telemetry (telemetry is only kept for 28 days).
+Please see https://aka.ms/CommercialDataHandling for further details.
+
+
+Customer Details:
+
+======================================
+
+AzDev Services Org Name: (dev.azure.com/<ORG NAME>)
+Azure Billing Sub GUID: (if not linked, put n/a) 
+AAD GUID: (if not linked, put n/a)
+Source Code Provider:
+Azure Repos
+TFVC
+GitHub
+Other (please specify)
+
+Issue:
+======================================
+(Clear description of the issue, including any error messages the customer receives)
+
+
+Troubleshooting:
+======================================
+
+Please collect the following and ensure it is found in DTM:
+A successful run of the pipeline
+URL of pipeline results: (https://dev.azure.com/<orgname>/<projectname>/_build/results?buildId=<int>&view=results)
+If you cannot get the URL, please provide:
+Project name: 
+Pipeline name: 
+Run / Build / Release Id: 
+Screenshots of the recent pipeline runs
+Zip file containing any downloadable pipeline logs from the run
+The run containing the first instance of the problem (if possible)
+URL of pipeline results: (https://dev.azure.com/<orgname>/<projectname>/_build/results?buildId=<int>&view=results)
+If you cannot get the URL, please provide:
+Project name: 
+Pipeline name: 
+Run / Build / Release Id: 
+Screenshots of the recent pipeline runs
+Zip file containing any downloadable pipeline logs from the run
+A run demonstrating the problem with system.debug set to true
+URL of pipeline results: (https://dev.azure.com/<orgname>/<projectname>/_build/results?buildId=<int>&view=results)
+If you cannot get the URL, please provide:
+Project name: 
+Pipeline name: 
+Run / Build / Release Id: 
+Screenshots of the recent pipeline runs
+Zip file containing any downloadable pipeline logs from the run
+How many times has this failed?
+Is it sporadic, or all runs?
+Is it happening for all users?
+If using YAML pipelines, attach their final YAML by clicking "download full YAML" in the "..." menu of the pipeline editor view
+If using designer (non-YAML) pipelines, have the customer export the JSON for the failing definition (at the version active at first failure) and attach to issue.
+If the customer is using self-hosted Pipelines agents:
+Attach a zip of the _diag folder from a machine that ran the job
+If it can be reproduced again, enable agent.diagnostics to true on pipeline and HTTP\s tracing for the agent and reproduce the issue again.
+Run the agent diagnostics tools from an example machine and attach the output (https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops#diagnostics) 
+Is the customer using a proxy?
+What happens if they disable it?
+Is the customer using anti-virus software?
+What happens if they disable it? 
+Where is the agent machine (is the agent on a VM or container)?
+What kind of pool is the agent machine in? Is it a VMSS Pool? 
+If the problem is related to a task failure, please collect:
+Task Name and version:
+Default\Custom task:
+Information like when the issue started happening, was it ever working, or never worked can be useful for analysis, please provide all this detail:
+Failing script (PowerShell, CMD, Bash), ARM Template, etc. (names of worker log files capturing the failure are helpful!)
+Compare the successful and failure logs to check if there are any changes related to agent version, image version, task version.
+If problem is related to pipelines/stages/jobs/tasks running or not, please collect: 
+Is the pipeline paused? 
+What are the evaluated conditions of each node in the graph? 
+What are the cancelation timeouts for each node in the graph?
+If it is a UI problem, please collect:
+URL of the page
+Screenshot or video demonstrating the issue
+F12 Console output (if any)
+F12 network trace or Fiddler (if helpful)
+
+Debugging Done:
+======================================
+
+Please include all the details of what troubleshooting you have done, including:
+
+Analysis done from any collected logs
+Kusto queries run and the relevant results
+Any docs that were referenced
+Any suggestions/observations made by escalations
+If it can be reproduced, please provide the steps to repro
+If customer is using some commands or APIs, does the issue reproduce outside of the pipeline?
+Logs from remote being affected (Azure web app, Cloud Service, SQL Azure, IIS, etc). You may need to collab with other CSS teams to get these.
+If a collab is done with other teams, please add the detailed analysis from their side.
+Logs running the same from command line in case of automated testing (also detail about test framework and versions.. )
+In case of deploymentAPI failure, please also collect kudu logs on the scm site underLogFiles/Kudu/trace path
+If the issue is related to retention, please provide the retention settings from pipeline definition, at org level setting for retention, pipeline stage retention settings.
+
+
+Ask:
+======================================
+(What do you need from the EEE/EG?)
