@@ -44,6 +44,30 @@ All information is compiled into a structured JSON report, and every action is l
 
 ## Usage
 
+### Running the PowerShell Script
+
+Before running the PowerShell script from this repository, you may need to update your PowerShell execution policy to allow script execution.
+
+### Step 1: Open PowerShell as Administrator
+
+Right-click on PowerShell and select **"Run as administrator."**
+
+### Step 2: Set the Execution Policy
+
+Run the following command to temporarily allow script execution for the current session:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+````
+
+Alternatively, to set it for the current user permanently (if appropriate):
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+> ⚠️ Use `Bypass` or `Unrestricted` only if you understand the security implications.
+
 ### Running the Script
 
 You can run the script directly from a PowerShell console. The script accepts parameters to avoid interactive prompts. If parameters are not provided, the script will prompt for required values.
